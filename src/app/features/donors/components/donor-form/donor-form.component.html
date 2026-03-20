@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="submit()"
+  class="flex flex-column gap-3 surface-card p-4 border-round border-1 border-300">
+
+  <h3 class="m-0">Nuevo donador</h3>
+
+  <div class="flex flex-column gap-1">
+    <label class="font-medium">Nombre</label>
+    <input pInputText formControlName="name" placeholder="Nombre completo" />
+    @if (form.get('name')?.invalid && form.get('name')?.touched) {
+    <small class="text-red-500">Mínimo 3 caracteres</small>
+    }
+  </div>
+
+  <div class="flex flex-column gap-1">
+    <label class="font-medium">Tipo de sangre</label>
+    <p-dropdown formControlName="bloodType" [options]="bloodTypes" optionLabel="label" optionValue="value"
+      placeholder="Selecciona tipo" />
+  </div>
+
+  <p-button type="submit" label="Agregar donador" icon="pi pi-plus" [disabled]="form.invalid" />
+
+</form>

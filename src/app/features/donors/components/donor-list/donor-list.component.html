@@ -1,0 +1,29 @@
+<div class="flex flex-column gap-2">
+
+  @for (donor of donors; track donor.id) {
+
+    <div class="flex align-items-center justify-content-between p-3 border-round surface-card border-1 border-300">
+
+      <div class="flex align-items-center gap-3">
+        <p-tag
+          [value]="donor.bloodType"
+          [severity]="donor.available ? 'success' : 'danger'" />
+        <span class="font-medium"> {{ donor.name }} </span>
+      </div>
+
+      <p-button
+        [label]="donor.available ? 'Disponible' : 'No disponible'"
+        [severity]="donor.available ? 'success' : 'danger'"
+        [outlined]="true"
+        size="small"
+        (onClick)="toggle(donor.id)" />
+
+    </div>
+
+  }
+
+  @empty {
+    <p class="text-center text-500">No hay donadores registrados.</p>
+  }
+
+</div>
