@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import {ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 
@@ -7,26 +7,24 @@ import { MenubarModule } from 'primeng/menubar';
   standalone: true,
   imports: [MenubarModule],
   templateUrl: './navbar.component.html',
-  styles: ``
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-
-  //TODO: Cambiar a un para obtener los items del menú pero desde un array de objetos
 
   items = signal<MenuItem[]>(
     [
       {
-        label: 'Home',
+        label: 'Donadores',
         icon: 'pi pi-user',
         routerLink: '/donadores'
       },
       {
-        label: 'About',
+        label: 'Receptores',
         icon: 'pi pi-users',
         routerLink: '/receptores'
       },
       {
-        label: 'Contact',
+        label: 'Donaciones',
         icon: 'pi pi-sync',
         routerLink: '/donaciones'
       }

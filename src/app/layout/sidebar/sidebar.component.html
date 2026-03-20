@@ -1,0 +1,14 @@
+<div class="flex flex-column h-screen bg-gray-900 pt-4" style="width: 220px">
+
+  @for (item of navItems(); track item.route) {
+  <a
+  [routerLink]="item.route"
+  routerLinkActive="active-link"
+  class="flex align-items-center gap-3 px-4 py-3 text-gray-400 no-underline border-round-lg mx-2 mb-1 cursor-pointer
+  transition-all transition-duration-200">
+  <i [class]="item.icon + ' text-xl'"></i>
+  <span class="font-medium">{{ item.label }}</span>
+  </a>
+  }
+
+</div>
